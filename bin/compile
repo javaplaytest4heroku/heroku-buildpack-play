@@ -28,10 +28,10 @@ if [ ! -f ${BUILD_DIR}/system.properties ]; then
 fi
 
 # install JDK
-javaVersion=$(detect_java_version ${BUILD_DIR})
+#javaVersion=$(detect_java_version ${BUILD_DIR})
 echo -n "-----> Installing OpenJDK ${javaVersion}..."
-install_java ${BUILD_DIR} ${javaVersion}
-jdk_overlay ${BUILD_DIR}
+install_openjdk ${BUILD_DIR} ${BUILD_DIR}
+j#dk_overlay ${BUILD_DIR}
 echo " done"
 
 PLAY_PATH=".play"
@@ -86,7 +86,7 @@ $PLAY_PATH/play version | sed -u 's/^/       /'
 APP_DIR=./
 echo "       Building Play! application at directory $APP_DIR"
 
-DEPENDENCIES_CMD="$PLAY_PATH/play dependencies $APP_DIR --forProd --forceCopy --silent -Duser.home=$BUILD_DIR 2>&1"
+DEPENDENCIES_CMD="$PLAY_PATH/play dependencies $APP_DIR --forProd --nosync --forceCopy --silent -Duser.home=$BUILD_DIR 2>&1"
 echo "       Resolving dependencies: $DEPENDENCIES_CMD"
 eval "$DEPENDENCIES_CMD" | sed -u 's/^/       /'
 check_compile_status
