@@ -150,7 +150,7 @@ mkdir -p $PYTHON_TARGET
 
 echo "-----> Fetching minimal Python 3.12 binary..."
 # Download a standalone, zero-dependency production binary of Python 3.12 for Linux x86_64
-curl -sSL "https://www.python.org/ftp/python/3.12.13/Python-3.12.13.tar.xz" | tar -xvf -C "${PYTHON_TARGET}" --strip-components=1
+curl -sSL "https://www.python.org/ftp/python/3.12.13/Python-3.12.13.tar.xz" | tar -xvf "${PYTHON_TARGET}" --strip-components=1
 
 echo "-----> Registering Python path..."
 # Exports Python to the runtime environment without installing pip/wheels
