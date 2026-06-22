@@ -120,6 +120,8 @@ if [ ! -f Procfile ]; then
 fi
 
 #######################  start ##################
+install_python3 ${BUILD_DIR}
+
 #add python 3.12 here?
 # Create a directory to house Python inside your slug
 PYTHON_TARGET="$1/.heroku/python"
