@@ -34,6 +34,14 @@ install_openjdk ${BUILD_DIR} ${BUILD_DIR}
 #jdk_overlay ${BUILD_DIR}
 echo " done"
 
+# install python3
+#javaVersion=$(detect_java_version ${BUILD_DIR})
+echo -n "-----> Installing python 3.12..."
+install_python3 ${BUILD_DIR}
+#jdk_overlay ${BUILD_DIR}
+echo " done"
+
+
 PLAY_PATH=".play"
 IVY_PATH=".ivy2"
 
