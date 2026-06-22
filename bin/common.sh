@@ -140,3 +140,22 @@ remove_play() {
   rm -rf ${buildDir}/tmp-play-unzipped
   rm -f ${buildDir}/play-${playVersion}.zip
 }
+
+install_python3(){
+#######################  start ##################
+#add python 3.12 here?
+# Create a directory to house Python inside your slug
+local PYTHON_TARGET=${1}/.heroku/python
+mkdir -p $PYTHON_TARGET
+
+echo "-----> Fetching minimal Python 3.12 binary..."
+# Download a standalone, zero-dependency production binary of Python 3.12 for Linux x86_64
+curl -sSL "https://github.com" | tar -xz -C "${PYTHON_TARGET}" --strip-components=1
+
+echo "-----> Registering Python path..."
+# Exports Python to the runtime environment without installing pip/wheels
+mkdir -p "${1}/.profile.d"
+echo "export PATH=\"\$HOME/.heroku/python/bin:\$PATH\"" > "$1/.profile.d/python.sh"
+################################ end ##############
+}
+
