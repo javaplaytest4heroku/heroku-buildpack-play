@@ -146,7 +146,7 @@ install_python3(){
 #add python 3.12 here?
 # Create a directory to house Python inside your slug
 local PYTHON_TARGET=${1}/.heroku/python
-mkdir -p $PYTHON_TARGET
+mkdir -p ${PYTHON_TARGET}
 
 echo "-----> Fetching minimal Python 3.12 binary..."
 # Download a standalone, zero-dependency production binary of Python 3.12 for Linux x86_64
